@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Exercise02": {
+      "commandName": "Project",
+      "commandLineArgs": "-tof 1 10"
+    }
+  }
+}
