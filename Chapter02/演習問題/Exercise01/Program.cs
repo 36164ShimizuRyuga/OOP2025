@@ -10,10 +10,17 @@
     new Song("I Will Always Love You", "Whitney Houston", 273),
 };
 
-            
+            printSongs(songs);
+
         }
         //2.1.4
+        private static void printSongs(Song[] songs) {
+            foreach (Song song in songs) {
+                int minutes = song.Length / 60;
+                int seconds = song.Length % 60;
+                Console.WriteLine($"Title: {song.Title}, Artist: {song.ArtistName}, Length: {minutes}:{seconds}");
+            }
+        }
 
-      
     }
 }
