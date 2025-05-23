@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace Exercise04 {
     internal class Program {
         static void Main(string[] args) {
@@ -20,13 +22,14 @@ namespace Exercise04 {
             foreach (var lang in obj) {
                 Console.WriteLine(lang);
             }
+            Console.WriteLine("");
             //for文
             for (var i = 0; i < langs.Count; i++) {
                 if (langs[i].Contains('S')) {
                     Console.WriteLine(langs[i]);
 
                 }
-                
+                Console.WriteLine("");
             }
             //while文
             int s = 0;
@@ -41,7 +44,6 @@ namespace Exercise04 {
         }
 
         private static void Exercise2(List<string> langs) {
-            //foreach
             var obj = langs.Where(s => s.Contains('S')).ToArray();
             foreach (var lang in obj) {
                 Console.WriteLine(lang);
@@ -50,7 +52,14 @@ namespace Exercise04 {
         }
 
         private static void Exercise3(List<string> langs) {
-
+            var find = langs.Find(s => s.Length == 10).ToList();
+            if (find is null) {
+                Console.Write("unknown");
+            } else {
+                Console.WriteLine(find);
+            }
+           
+           
         }
     }
 }
