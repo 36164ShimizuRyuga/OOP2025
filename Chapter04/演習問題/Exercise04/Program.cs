@@ -13,17 +13,38 @@ namespace Exercise04 {
             Console.WriteLine("---");
             Exercise3(langs);
         }
-
+       
         private static void Exercise1(List<string> langs) {
+            //foreach文
+            var obj = langs.Where(s => s.Contains('S')).ToArray();
+            foreach (var lang in obj) {
+                Console.WriteLine(lang);
+            }
+            //for文
+            for (var i = 0; i < langs.Count; i++) {
+                if (langs[i].Contains('S')) {
+                    Console.WriteLine(langs[i]);
 
+                }
+            }
+                //while文
+                int s = 0;
+                while (s < langs.Count) {
+                    if (langs[s].Contains('S')) {
+                        Console.WriteLine(langs[s]);
+                    }
+                s++;
+            }
+
+            
         }
 
         private static void Exercise2(List<string> langs) {
-            
+
         }
 
         private static void Exercise3(List<string> langs) {
-            
+
         }
     }
 }
