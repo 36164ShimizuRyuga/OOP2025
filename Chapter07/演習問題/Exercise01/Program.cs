@@ -23,6 +23,7 @@ namespace Exercise01 {
         private static void Exercise1(int[] numbers) {
             Console.WriteLine(numbers.Max());
         }
+        
 
         private static void Exercise2(int[] numbers) {
             
@@ -36,7 +37,10 @@ namespace Exercise01 {
         }
 
         private static void Exercise4(int[] numbers) {
-           
+            var num = numbers.OrderBy(n => n).Take(3);
+            foreach (var n in num) {
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise5(int[] numbers) {
