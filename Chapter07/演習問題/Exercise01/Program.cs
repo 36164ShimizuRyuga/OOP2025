@@ -22,11 +22,13 @@ namespace Exercise01 {
 
         private static void Exercise1(int[] numbers) {
             Console.WriteLine(numbers.Max());
+
+            Console.WriteLine("");
         }
-        
+
 
         private static void Exercise2(int[] numbers) {
-            
+
         }
 
         private static void Exercise3(int[] numbers) {
@@ -34,6 +36,7 @@ namespace Exercise01 {
             foreach (var n in strings) {
                 Console.WriteLine(n);
             }
+            Console.WriteLine("");
         }
 
         private static void Exercise4(int[] numbers) {
@@ -41,6 +44,7 @@ namespace Exercise01 {
             foreach (var n in num) {
                 Console.WriteLine(n);
             }
+            Console.WriteLine("");
         }
 
         private static void Exercise5(int[] numbers) {
@@ -48,7 +52,7 @@ namespace Exercise01 {
             foreach (var n in count) {
                 Console.WriteLine(n);
             }
-            
+            Console.WriteLine("");
         }
     }
 }
