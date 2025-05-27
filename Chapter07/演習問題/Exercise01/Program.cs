@@ -28,7 +28,11 @@ namespace Exercise01 {
 
 
         private static void Exercise2(int[] numbers) {
-
+            var lastTwo = numbers.Skip(numbers.Length - 2);
+            foreach (var n in lastTwo) {
+                Console.WriteLine(n);
+            }
+            Console.WriteLine("");
         }
 
         private static void Exercise3(int[] numbers) {
