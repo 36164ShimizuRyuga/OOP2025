@@ -56,7 +56,7 @@ namespace Exercise01 {
             foreach (var n in count) {
                 Console.WriteLine(n);
             }
-            Console.WriteLine("");
+            Console.WriteLine("");　　
         }
     }
 }
