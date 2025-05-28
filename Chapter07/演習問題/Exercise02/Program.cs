@@ -40,20 +40,23 @@ namespace Exercise02 {
         }
 
         private static void Exercise2(List<Book> books) {
-            var book = books.Count(x => x.Title == "C#");
-            
+            var book = books.Count(x => x.Title.Contains("C#"));
+            Console.WriteLine(book);
         }
 
         private static void Exercise3(List<Book> books) {
-            
+            var avg = books.Where(b => b.Title.Contains("C#")).Average(b => b.Pages);
+            Console.WriteLine(avg);
         }
 
         private static void Exercise4(List<Book> books) {
-            
+            var book = books.Where(b => b.Price >= 4000).First();
+            Console.WriteLine(book.Title);
         }
 
         private static void Exercise5(List<Book> books) {
-            
+            var book = books.Where(b => b.Price < 4000).Max(b => b.Pages);
+            Console.WriteLine(book);
         }
 
         private static void Exercise6(List<Book> books) {
