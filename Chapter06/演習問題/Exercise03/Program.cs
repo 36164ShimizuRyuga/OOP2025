@@ -37,7 +37,7 @@ namespace Exercise03 {
 
         private static void Exercise4(string text) {
             var words = text.Split( ' ', StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine("単語数："+ words);
+            Console.WriteLine("単語数："+ words.Length);
         }
 
         private static void Exercise5(string text) {
