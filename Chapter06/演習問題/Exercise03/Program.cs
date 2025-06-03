@@ -39,7 +39,7 @@ namespace Exercise03 {
             foreach (var word in words) {
                 sb.Append(word + ' ');
             }
-            Console.WriteLine(sb.ToString());
+            Console.WriteLine(sb.ToString().Trim()+".");
         }
 
         private static void Exercise4(string text) {
