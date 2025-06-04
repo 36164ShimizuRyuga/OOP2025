@@ -27,7 +27,33 @@ namespace Exercise03 {
         }
 
         private static void Exercise6(string text) {
-            var alphabetCount = text
+            var str = text.ToLower().Replace(" ","");
+            
+            var alphDicCount = Enumerable.Range('a', 26)
+                                .ToDictionary(num => ((char)num).ToString(), num => 0);
+
+            foreach (var alph in str) {
+                alphDicCount[alph.ToString()]++;
+            }
+
+            foreach (var item in alphDicCount) {
+                Console.WriteLine($"{item.Key}:{item.Value}");
+
+            }
+
+            Console.WriteLine();
+
+            var array = Enumerable.Repeat(0, 26).ToArray();
+
+            foreach (var alph in str) {
+                array[alph - 'a']++;
+            }
+            for(char ch = 'a';ch <= 'z';ch++) {
+                Console.WriteLine($"{ch}:{array[ch - 'a']}");
+            }
+
+
+          /*  var alphabetCount = text
                 .Where(c => Char.IsLetter(c))         
                 .Select(c => Char.ToLower(c))         
                 .GroupBy(c => c)                      
@@ -37,7 +63,7 @@ namespace Exercise03 {
             for (char letter = 'a'; letter <= 'z'; letter++) {
                 int count = alphabetCount.ContainsKey(letter) ? alphabetCount[letter] : 0; 
                 Console.WriteLine($"{letter}: {count}");
-            }
+            }*/
         }
 
 
