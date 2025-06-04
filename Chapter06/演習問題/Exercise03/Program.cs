@@ -21,7 +21,26 @@ namespace Exercise03 {
             Console.WriteLine("6.3.5");
             Exercise5(text);
 
+            Console.WriteLine("6.3.99");
+            Exercise6(text);
+
         }
+
+        private static void Exercise6(string text) {
+            var alphabetCount = text
+                .Where(c => Char.IsLetter(c))         
+                .Select(c => Char.ToLower(c))         
+                .GroupBy(c => c)                      
+                .ToDictionary(g => g.Key, g => g.Count()); 
+
+           
+            for (char letter = 'a'; letter <= 'z'; letter++) {
+                int count = alphabetCount.ContainsKey(letter) ? alphabetCount[letter] : 0; 
+                Console.WriteLine($"{letter}: {count}");
+            }
+        }
+
+
 
         private static void Exercise1(string text) {
             var count = text.Count(c => c == ' ');
@@ -56,5 +75,7 @@ namespace Exercise03 {
             }
 
         }
+       
+
     }
 }
