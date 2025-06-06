@@ -34,8 +34,8 @@ namespace Exercise01{
             return new YearMonth(newYear, newMonth);
         }
         //5.1.4
-        public override string ToString() =>
-            
+        public override string ToString() {
+            return $"{Year}年{Month}月";
         }
     }
 }
