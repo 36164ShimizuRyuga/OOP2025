@@ -13,7 +13,7 @@ namespace Exercise01 {
 
         private static void Exercise1(string text) {
             //1 ディクショナリインスタンスの生成
-            var dict = new Dictionary<char, int>();
+            var dict = new SortedDictionary<char, int>();
             //2 一文字取り出す, 3 大文字に変化
             foreach (var c in text.ToUpper()) {
                 //4 アルファベットならディクショナリ登録
@@ -29,7 +29,7 @@ namespace Exercise01 {
             //　登録済み：valueをインクリメント
             //未登録：valueに１を設定
             //5 2にもどる　
-            foreach (var pair in dict.OrderBy(p => p.Key)) {
+            foreach (var pair in dict) {
                 Console.WriteLine($"{pair.Key}: {pair.Value}");
             }
 
