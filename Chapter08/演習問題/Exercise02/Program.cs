@@ -25,6 +25,11 @@
             }
             Console.WriteLine();
 
+            //8.2.4
+            var query = abbrs.Where(x => x.Key.Length == 3);
+
+
+
 
             // Getメソッドの利用例
             var names = new[] { "WHO", "FIFA", "NPT", };
