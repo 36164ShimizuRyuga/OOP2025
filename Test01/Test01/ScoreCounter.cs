@@ -23,6 +23,7 @@
                 students.Add(student);
 
             }
+            return students;
 
         }
 
