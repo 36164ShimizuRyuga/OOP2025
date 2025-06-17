@@ -101,7 +101,8 @@ namespace Test02 {
         //問題６　全都市数
         //　　　　出力結果【8】
         private static void Exercise06(List<string> cities) {
-            
+            var count = cities.Count(x => x.Contains(" "));
+            Console.WriteLine(count);
 
         }
 
