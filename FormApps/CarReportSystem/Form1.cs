@@ -288,7 +288,7 @@ namespace CarReportSystem {
                 tsslbMessage.Text = "設定ファイル書き出しエラー";
                 MessageBox.Show(ex.Message);
             }
-          
+
         }
     }
 }

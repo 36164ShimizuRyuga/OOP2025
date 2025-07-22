@@ -23,22 +23,14 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            tbUrl = new TextBox();
             btRssGet = new Button();
             lbTitles = new ListBox();
             wvRssLink = new Microsoft.Web.WebView2.WinForms.WebView2();
             btNext = new Button();
             btReturn = new Button();
+            cbUrl = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)wvRssLink).BeginInit();
             SuspendLayout();
-            // 
-            // tbUrl
-            // 
-            tbUrl.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tbUrl.Location = new Point(204, 8);
-            tbUrl.Name = "tbUrl";
-            tbUrl.Size = new Size(607, 29);
-            tbUrl.TabIndex = 0;
             // 
             // btRssGet
             // 
@@ -97,31 +89,39 @@
             btReturn.UseVisualStyleBackColor = true;
             btReturn.Click += btReturn_Click;
             // 
+            // cbUrl
+            // 
+            cbUrl.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            cbUrl.FormattingEnabled = true;
+            cbUrl.Location = new Point(200, 14);
+            cbUrl.Name = "cbUrl";
+            cbUrl.Size = new Size(613, 29);
+            cbUrl.TabIndex = 6;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(928, 738);
+            Controls.Add(cbUrl);
             Controls.Add(btReturn);
             Controls.Add(btNext);
             Controls.Add(wvRssLink);
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
-            Controls.Add(tbUrl);
             Name = "Form1";
             Text = "Rssリーダー";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)wvRssLink).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox tbUrl;
         private Button btRssGet;
         private ListBox lbTitles;
         private Microsoft.Web.WebView2.WinForms.WebView2 wvRssLink;
         private Button btNext;
         private Button btReturn;
+        private ComboBox cbUrl;
     }
 }

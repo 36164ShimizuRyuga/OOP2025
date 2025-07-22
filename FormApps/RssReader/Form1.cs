@@ -14,7 +14,7 @@ namespace RssReader {
 
         private async void btRssGet_Click(object sender, EventArgs e) {
             using (var hc = new HttpClient()) {
-                string xml = await hc.GetStringAsync(tbUrl.Text);
+                string xml = await hc.GetStringAsync(cbUrl.Text);
                 XDocument xdoc = XDocument.Parse(xml);
 
 
@@ -43,17 +43,21 @@ namespace RssReader {
         }
 
         private void btNext_Click_1(object sender, EventArgs e) {
-                wvRssLink.GoForward();
-            
+            wvRssLink.GoForward();
+
         }
 
         private void btReturn_Click(object sender, EventArgs e) {
-                wvRssLink.GoBack();
-            
+            wvRssLink.GoBack();
+
         }
 
         private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            cbUrl.Items.Add("https://news.yahoo.co.jp/rss/media/bballk/all.xml");
         }
     }
 }

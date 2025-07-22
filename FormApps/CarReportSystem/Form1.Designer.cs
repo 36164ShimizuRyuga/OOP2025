@@ -170,6 +170,7 @@
             cbAuthor.Name = "cbAuthor";
             cbAuthor.Size = new Size(200, 33);
             cbAuthor.TabIndex = 2;
+            cbAuthor.SelectedIndexChanged += 開くToolStripMenuItem_Click;
             // 
             // groupBox1
             // 
