@@ -104,8 +104,19 @@ namespace RssReader {
             }
         }
 
+        //お気に入りを消去
         private void btDelete_Click(object sender, EventArgs e) {
+            var deleteKey = cbUrl.Text;
 
+            // 空文字や存在しないキーを削除しないようにチェック
+            if (!string.IsNullOrWhiteSpace(deleteKey) && rssUrlDict.ContainsKey(deleteKey)) {
+                rssUrlDict.Remove(deleteKey);
+
+                // コンボボックスのデータソースを更新
+                var bindingList = new BindingList<string>(rssUrlDict.Keys.ToList());
+                cbUrl.DataSource = bindingList;
+            }
         }
     }
+    
 }

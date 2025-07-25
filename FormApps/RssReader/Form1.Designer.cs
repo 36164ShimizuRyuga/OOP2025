@@ -123,9 +123,9 @@
             // btDelete
             // 
             btDelete.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btDelete.Location = new Point(671, 71);
+            btDelete.Location = new Point(684, 68);
             btDelete.Name = "btDelete";
-            btDelete.Size = new Size(75, 23);
+            btDelete.Size = new Size(72, 25);
             btDelete.TabIndex = 9;
             btDelete.Text = "登録消去";
             btDelete.UseVisualStyleBackColor = true;
