@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Net;
 using System.Security.Policy;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ namespace RssReader {
         private List<ItemData> items;
 
         Dictionary<string, string> rssUrlDict = new Dictionary<string, string>() {
+            {" "," " },
             {"バスケ","https://news.yahoo.co.jp/rss/media/bballk/all.xml" },
             {"主要","https://news.yahoo.co.jp/rss/topics/top-picks.xml" },
             {"経済","https://news.yahoo.co.jp/rss/topics/business.xml" },
@@ -18,15 +20,17 @@ namespace RssReader {
             {"エンタメ","https://news.yahoo.co.jp/rss/topics/entertainment.xml" },
 
         };
-        
+
         public Form1() {
             InitializeComponent();
         }
 
 
         private void Form1_Load(object sender, EventArgs e) {
-            cbUrl.DataSource = rssUrlDict.Keys.ToList();
-            
+            btReturn.Enabled = wvRssLink.CanGoBack;
+            btNext.Enabled = wvRssLink.CanGoForward;
+            cbUrl.DataSource = new BindingList<string>(rssUrlDict.Keys.ToList());
+
         }
 
 
@@ -79,10 +83,29 @@ namespace RssReader {
 
         }
 
+        //マスクさせる
         private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
-            
+            btReturn.Enabled = wvRssLink.CanGoBack;
+            btNext.Enabled = wvRssLink.CanGoForward;
         }
 
-       
+        //お気に入り登録URLをコンボボックスに登録する。        
+        //登録するときの名前はtbFavoritNameに書いた名前とする
+        private void btRegistration_Click(object sender, EventArgs e) {
+            var rssName = tbFavoritName.Text;
+            var rssUrl = cbUrl.Text;
+
+            if (!rssUrlDict.ContainsKey(rssName)) {
+                rssUrlDict.Add(rssName, rssUrl);
+
+                var bindingList = new BindingList<string>(rssUrlDict.Keys.ToList());
+                cbUrl.DataSource = bindingList;
+                tbFavoritName.Clear();
+            }
+        }
+
+        private void btDelete_Click(object sender, EventArgs e) {
+
+        }
     }
 }

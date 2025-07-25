@@ -29,6 +29,9 @@
             btNext = new Button();
             btReturn = new Button();
             cbUrl = new ComboBox();
+            tbFavoritName = new TextBox();
+            btRegistration = new Button();
+            btDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)wvRssLink).BeginInit();
             SuspendLayout();
             // 
@@ -49,9 +52,9 @@
             lbTitles.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             lbTitles.FormattingEnabled = true;
             lbTitles.ItemHeight = 21;
-            lbTitles.Location = new Point(12, 56);
+            lbTitles.Location = new Point(12, 118);
             lbTitles.Name = "lbTitles";
-            lbTitles.Size = new Size(904, 214);
+            lbTitles.Size = new Size(962, 277);
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_Click;
             // 
@@ -60,9 +63,9 @@
             wvRssLink.AllowExternalDrop = true;
             wvRssLink.CreationProperties = null;
             wvRssLink.DefaultBackgroundColor = Color.White;
-            wvRssLink.Location = new Point(12, 289);
+            wvRssLink.Location = new Point(12, 415);
             wvRssLink.Name = "wvRssLink";
-            wvRssLink.Size = new Size(904, 437);
+            wvRssLink.Size = new Size(962, 383);
             wvRssLink.TabIndex = 3;
             wvRssLink.ZoomFactor = 1D;
             wvRssLink.SourceChanged += wvRssLink_SourceChanged;
@@ -98,11 +101,44 @@
             cbUrl.Size = new Size(613, 29);
             cbUrl.TabIndex = 6;
             // 
+            // tbFavoritName
+            // 
+            tbFavoritName.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            tbFavoritName.Location = new Point(200, 64);
+            tbFavoritName.Name = "tbFavoritName";
+            tbFavoritName.Size = new Size(324, 29);
+            tbFavoritName.TabIndex = 7;
+            // 
+            // btRegistration
+            // 
+            btRegistration.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btRegistration.Location = new Point(557, 68);
+            btRegistration.Name = "btRegistration";
+            btRegistration.Size = new Size(79, 25);
+            btRegistration.TabIndex = 8;
+            btRegistration.Text = "登録";
+            btRegistration.UseVisualStyleBackColor = true;
+            btRegistration.Click += btRegistration_Click;
+            // 
+            // btDelete
+            // 
+            btDelete.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btDelete.Location = new Point(671, 71);
+            btDelete.Name = "btDelete";
+            btDelete.Size = new Size(75, 23);
+            btDelete.TabIndex = 9;
+            btDelete.Text = "登録消去";
+            btDelete.UseVisualStyleBackColor = true;
+            btDelete.Click += btDelete_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(928, 738);
+            ClientSize = new Size(986, 801);
+            Controls.Add(btDelete);
+            Controls.Add(btRegistration);
+            Controls.Add(tbFavoritName);
             Controls.Add(cbUrl);
             Controls.Add(btReturn);
             Controls.Add(btNext);
@@ -114,6 +150,7 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)wvRssLink).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -123,5 +160,8 @@
         private Button btNext;
         private Button btReturn;
         private ComboBox cbUrl;
+        private TextBox tbFavoritName;
+        private Button btRegistration;
+        private Button btDelete;
     }
 }
