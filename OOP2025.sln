@@ -163,6 +163,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise04", "Chapter11\演
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise05", "Chapter11\演習問題\Exercise05\Exercise05.csproj", "{E1DF511E-A770-40CC-917E-9CB48B62BC29}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPN", "WPN", "{BBB211AA-E0EB-43D9-B39E-EE24A9767A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication", "WPF\SampleApplication\SampleApplication.csproj", "{217B9998-9087-45D3-8667-6B7AD7AA6A84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -385,6 +389,10 @@ Global
 		{E1DF511E-A770-40CC-917E-9CB48B62BC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DF511E-A770-40CC-917E-9CB48B62BC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1DF511E-A770-40CC-917E-9CB48B62BC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217B9998-9087-45D3-8667-6B7AD7AA6A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217B9998-9087-45D3-8667-6B7AD7AA6A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217B9998-9087-45D3-8667-6B7AD7AA6A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217B9998-9087-45D3-8667-6B7AD7AA6A84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -456,6 +464,7 @@ Global
 		{4A8319B3-F846-467A-B475-0A6D3B80C70E} = {AEBB04EB-5BE6-45F7-B9D2-D0760A7FB04F}
 		{7FE7FA9D-BD72-4DA3-9389-6A046BBFBD53} = {AFCC5E3E-CBCA-45CE-82E4-635CF07DF5DA}
 		{E1DF511E-A770-40CC-917E-9CB48B62BC29} = {AFCC5E3E-CBCA-45CE-82E4-635CF07DF5DA}
+		{217B9998-9087-45D3-8667-6B7AD7AA6A84} = {BBB211AA-E0EB-43D9-B39E-EE24A9767A05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3623E5F-224E-4120-A814-B13828C46263}
