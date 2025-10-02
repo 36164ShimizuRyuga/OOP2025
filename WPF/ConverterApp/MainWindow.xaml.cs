@@ -20,9 +20,17 @@ namespace ConverterApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
+        public MainWindow(){
             InitializeComponent();
+        }
+
+        private void MetricUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var selectedItem = MetricUnit.SelectedItem as System.Windows.Controls.ComboBoxItem;
+        }
+
+        private void ImperialUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var selectedItem = MetricUnit.SelectedItem as System.Windows.Controls.ComboBoxItem;
+
         }
     }
 }
