@@ -38,18 +38,25 @@ namespace ColorChecker {
             colorArea.Background = new SolidColorBrush(Color.FromRgb((byte)r, (byte)g, (byte)b));
         }
 
-        private void stockButton_Click(object sender, RoutedEventArgs e) {
 
+
+        private void stockButton_Click(object sender, RoutedEventArgs e) {
             Color currentColor = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value);
             string name;
 
             if (colorSelectComboBox.SelectedItem is MyColor selectedColor
                 && selectedColor.Color == currentColor) {
-                // スライダーの色がコンボボックスの色と同じ → 名前を使う
                 name = selectedColor.Name;
             } else {
-                // スライダーでいじっている → RGBを割合(%)にして名前にする
                 name = $"R:{currentColor.R * 100 / 255} G:{currentColor.G * 100 / 255} B:{currentColor.B * 100 / 255}";
+            }
+
+            // すでに同じ色がリストに存在するかをチェック
+            foreach (MyColor item in colorListBox.Items) {
+                if (item.Color == currentColor) {
+                    MessageBox.Show("同じ色があります", "情報", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return; // 追加せずに終了
+                }
             }
 
             var myColor = new MyColor { Color = currentColor, Name = name };
