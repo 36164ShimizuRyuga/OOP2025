@@ -1,40 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SampleUnitConverter{
-    class MainWindowViewModel:ViewModel{
-
-        //フィールド
+namespace SampleUnitConverter {
+    class MainWindowViewModel : BindableBase {
         private double metricValue;
         private double imperialValue;
 
-        //▲で呼ばれるコマンド
-        public ICommand ImperialUnitToMetric { get; private set; }
-        //▼で呼ばれるコマンド
-        public ICommand MetricToImperialUnit { get; private set; }
+        private MetricUnit currentMetricUnit;
+        private ImperialUnit currentImperialUnit;
 
-        //上のコンボボックスで選択されている値
-        public MetricUnit CurrentMetricUnit { get; set; }
-        //下のコンボボックスで選択されている値
-        public ImperialUnit CurrentImperialUnit { get; set; }
+        // PrismのDelegateCommandを使ったコマンド
+        public ICommand ImperialUnitToMetric { get; }
+        public ICommand MetricToImperialUnit { get; }
+
+        public MetricUnit CurrentMetricUnit {
+            get => currentMetricUnit;
+            set => SetProperty(ref currentMetricUnit, value);
+        }
+
+        public ImperialUnit CurrentImperialUnit {
+            get => currentImperialUnit;
+            set => SetProperty(ref currentImperialUnit, value);
+        }
 
         public double MetricValue {
             get => metricValue;
-            set {
-                this.metricValue = value;
-                this.OnPropertyChanged();
-            }
+            set => SetProperty(ref metricValue, value);
         }
+
         public double ImperialValue {
             get => imperialValue;
-            set {
-                this.imperialValue = value;
-                this.OnPropertyChanged();
-            }
+            set => SetProperty(ref imperialValue, value);
         }
 
         public MainWindowViewModel() {
@@ -42,15 +40,12 @@ namespace SampleUnitConverter{
             CurrentImperialUnit = ImperialUnit.Units.First();
 
             ImperialUnitToMetric = new DelegateCommand(
-                () => MetricValue = 
-                CurrentMetricUnit.FromImperialUnit(CurrentImperialUnit, ImperialValue));
-
+                () => MetricValue =
+                    CurrentMetricUnit.FromImperialUnit(CurrentImperialUnit, ImperialValue));
 
             MetricToImperialUnit = new DelegateCommand(
                 () => ImperialValue =
-                CurrentImperialUnit.FromMetricUnit(CurrentMetricUnit, MetricValue));
-                
+                    CurrentImperialUnit.FromMetricUnit(CurrentMetricUnit, MetricValue));
         }
-
     }
 }
