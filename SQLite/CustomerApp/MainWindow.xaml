@@ -26,7 +26,7 @@
         <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="168,75,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14" Click="deleteButton_Click"/>
         <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="300,75,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14" Click="updateButton_Click"/>
 
-        <ListView x:Name="CustomerListView" Margin="5,210,5,5" Height="360" SelectionChanged="CustomerListView_SelectionChanged">
+        <ListView x:Name="CustomerListView" Grid.Row="2" Margin="5,5,5,5" Height="360" SelectionChanged="CustomerListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

@@ -42,30 +42,49 @@ public partial class MainWindow : Window {
             Phone = PhoneTextBox.Text,
             Address= AddressTextBox.Text,
         };
+        using (var connection = new SQLiteConnection(App.databasePath)) {
+            connection.CreateTable<Customer>(); 
+            connection.Insert(costomer);
+        }
+
+        ReadDatabase();
+        CustomerListView.ItemsSource = _customer; 
     }
+        
 
     private void deleteButton_Click(object sender, RoutedEventArgs e) {
-
-    }
-
-    private void updateButton_Click(object sender, RoutedEventArgs e) {
-        var selectedCustomer = CustomerListView.SelectedItem as Customer;
-        if (selectedCustomer is null) return;
-
+        var item = CustomerListView.SelectedItem as Customer;
+        if (item == null) {
+            MessageBox.Show("行を選択してください");
+            return;
+        }
         using (var connection = new SQLiteConnection(App.databasePath)) {
-            connection.CreateTable<Customer>();
-
-            var person = new Customer() {
-                Name = NameTextBox.Text,
-                Phone = PhoneTextBox.Text,
-                Address = AddressTextBox.Text,
-
-            };
-            connection.Update(person);
+            connection.CreateTable<Customer>(); 
+            connection.Delete(item);
             ReadDatabase();
             CustomerListView.ItemsSource = _customer;
         }
     }
+
+    private void updateButton_Click(object sender, RoutedEventArgs e) {
+        var selectedCustomer = CustomerListView.SelectedItem as Customer;
+        if (selectedCustomer == null) return;
+
+        // 選択中の顧客情報を更新
+        selectedCustomer.Name = NameTextBox.Text;
+        selectedCustomer.Phone = PhoneTextBox.Text;
+        selectedCustomer.Address = AddressTextBox.Text;
+
+        using (var connection = new SQLiteConnection(App.databasePath)) {
+            connection.CreateTable<Customer>();
+            connection.Update(selectedCustomer);
+        }
+
+        ReadDatabase();
+        CustomerListView.ItemsSource = null;   
+        CustomerListView.ItemsSource = _customer;  
+    }
+
 
     private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
         var selectedCustomer = CustomerListView.SelectedItem as Customer;
