@@ -12,12 +12,15 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        
+        <Image x:Name="PreviewImage" Grid.Row="1" HorizontalAlignment="Center" Margin="0,6,0,38" Width="92" Stretch="UniformToFill"/>
+
         <Label Content="名前" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="20" Margin="90,10,0,0"  VerticalAlignment="Top" Width="320"/>
-        
+
         <Label Content="電話番号" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Height="20" Margin="90,40,0,0"  VerticalAlignment="Top" Width="320"/>
-        
+
         <Label Content="住所" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Height="20" Margin="90,70,0,0"  VerticalAlignment="Top" Width="320"/>
 
@@ -25,18 +28,20 @@
         <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="30,75,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14" Click="saveButton_Click"/>
         <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="168,75,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14" Click="deleteButton_Click"/>
         <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="300,75,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14" Click="updateButton_Click"/>
-
+        
         <ListView x:Name="CustomerListView" Grid.Row="2" Margin="5,5,5,5" Height="360" SelectionChanged="CustomerListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontSize="20"/>
-                        <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
-                        <TextBlock Text="{Binding Address}" FontSize="20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <StackPanel Width="280" Margin="0,0,10,0">
+                            <TextBlock Text="{Binding Name}" FontSize="20"/>
+                            <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
+                            <TextBlock Text="{Binding Address}" FontSize="20"/>
+                        </StackPanel>
+                        <Image Source="{Binding PictureSource}" Height="100" Width="100" Stretch="Uniform" HorizontalAlignment="Left" Margin="0,0,10,0"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </Grid>
 </Window>
