@@ -1,4 +1,6 @@
 ﻿
+using System.Linq;
+
 namespace Exercise01 {
     internal class Program {
         static void Main(string[] args) {
@@ -36,7 +38,7 @@ namespace Exercise01 {
                 .GroupBy(b => b.PublishedYear)
                 .Select(g => new {
                     Year = g.Key,
-                    Count =g.Count()
+                    Count = g.Count()
                 })
                 .OrderBy(b => b.Year);
 
@@ -56,19 +58,80 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_5() {
-            
+            var bookyear = Library.Books
+                .Where(b => b.PublishedYear == 2022)
+                .Join(Library.Categories
+                                 , book => book.CategoryId
+                                 , Category => Category.Id
+                                 , (book, category) => category.Name);
+            foreach (var item in bookyear) {
+                Console.WriteLine(item);
+
+            }
+
+
+
+
         }
 
         private static void Exercise1_6() {
-            
+            var groupedBooks = Library.Books
+                            .Join(Library.Categories,
+                                b => b.CategoryId,
+                                c => c.Id,
+                                (b, c) => new {
+                                    CategoryName = c.Name,
+                                    b.Title
+                                }
+                            )
+                            .GroupBy(x => x.CategoryName)
+                            .OrderBy(x => x.Key);
+            foreach (var group in groupedBooks) {
+                Console.WriteLine($"#{group.Key}");
+                foreach (var book in group) {
+                    Console.WriteLine($"　{book.Title}");
+
+                }
+            }
         }
 
         private static void Exercise1_7() {
-            
+            var categoryYear = Library.Categories
+                .Where(x => x.Name.Equals("Development"))
+                .Join(Library.Books,
+                                c => c.Id,
+                                b => b.CategoryId,
+                                (c, b) => new {
+                                    b.Title,
+                                    b.PublishedYear
+
+                                })
+                .GroupBy(b => b.PublishedYear)
+                .OrderBy(g => g.Key);
+
+            foreach (var item in categoryYear) {
+                Console.WriteLine($"#{item.Key}年");
+                foreach (var book in item) {
+                    Console.WriteLine($"  {book.Title}");
+                }
+            }
         }
 
         private static void Exercise1_8() {
-            
+            var categoryNames = Library.Categories
+                        .GroupJoin(Library.Books,
+                        c => c.Id,
+                        b => b.CategoryId,
+                        (c, books) => new {
+                            Category = c.Name,
+                            BookCount = books.Count(),
+                        })
+                        .Where(x => x.BookCount >= 4);
+            foreach (var item in categoryNames) {
+                Console.WriteLine(item);
+            }
+
+
         }
     }
 }
