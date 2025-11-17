@@ -9,7 +9,7 @@ namespace DistanceConverter {
     public abstract class ConverterBase {
         //nameで与えられた単位が自分のものか判断
         public abstract bool IsMyUnit(string name);
-
+        
         //メートルとの比率
         protected abstract double Ratio { get; }
         //距離の単位
